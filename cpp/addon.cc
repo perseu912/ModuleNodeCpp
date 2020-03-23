@@ -1,5 +1,5 @@
-#include "include/node.h"
-
+#include <node.h>
+ 
 //exemplo de função 
 void Sum(const v8::FunctionCallbackInfo<v8::Value>& args){
   v8::Isolate* isolate= args.GetIsolate();
@@ -16,10 +16,10 @@ void Sum(const v8::FunctionCallbackInfo<v8::Value>& args){
   //e envia de volta pro script
   args.GetReturnValue().Set(total);
 }
-
-
+ 
+ 
 void Initialize(v8::Local<v8::Object> exports){
   NODE_SET_METHOD(exports, "sum",Sum);
 }
-
+ 
 NODE_MODULE(addon, Initialize)
